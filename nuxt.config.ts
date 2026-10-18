@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  modules: ['@vercel/analytics'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   components: [{ path: '~/components', pathPrefix: false }],

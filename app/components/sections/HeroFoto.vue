@@ -14,7 +14,11 @@ const foto = computed(() => perfil.foto ?? fotoPadrao)
     />
 
     <div class="mt-4 flex gap-3 xl:mt-[17px] xl:gap-[21px]">
-      <BotaoContorno :href="perfil.curriculoUrl" download class="flex-1 xl:w-[112px] xl:flex-none">
+      <BotaoContorno
+        :href="perfil.curriculoUrl"
+        download="curriculo-stephany.pdf"
+        class="flex-1 xl:w-[112px] xl:flex-none"
+      >
         Baixar currículo
       </BotaoContorno>
       <BotaoContorno :href="`mailto:${perfil.email}`" class="flex-1 xl:w-[112px] xl:flex-none">

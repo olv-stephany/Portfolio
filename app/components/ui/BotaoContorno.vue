@@ -2,7 +2,7 @@
 
 defineProps<{
   href?: string
-  download?: boolean
+  download?: boolean | string
 }>()
 </script>
 
