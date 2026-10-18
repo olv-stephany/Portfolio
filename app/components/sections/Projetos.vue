@@ -8,8 +8,15 @@ function proximo() {
   indice.value = (indice.value + 1) % projetos.length
 }
 
+function anterior() {
+  indice.value = (indice.value - 1 + projetos.length) % projetos.length
+}
+
 const botaoContorno =
   'flex h-10 min-w-[110px] flex-1 items-center justify-center rounded-[8px] border-2 border-white text-base text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-[140px] md:flex-none md:text-lg xl:h-[40px] xl:w-[200px] xl:min-w-0 xl:text-[20px]'
+
+const botaoNavegacao =
+  'h-10 flex-1 cursor-pointer rounded-[8px] text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-[150px] md:flex-none xl:h-[40px] xl:w-[150px] xl:text-[18px]'
 </script>
 
 <template>
@@ -88,14 +95,27 @@ const botaoContorno =
           </a>
         </div>
 
-        <button
+        <div
           v-if="projetos.length > 1"
-          type="button"
-          class="h-10 w-full cursor-pointer rounded-[8px] bg-azul-proximo text-base font-semibold transition-colors hover:brightness-125 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-[150px] xl:absolute xl:top-[690px] xl:left-[1126px] xl:h-[40px] xl:w-[150px] xl:text-[18px]"
-          @click="proximo"
+          class="flex w-full gap-3 md:w-auto xl:absolute xl:top-[690px] xl:left-[960px]"
         >
-          Próximo
-        </button>
+          <button
+            type="button"
+            aria-label="Ver projeto anterior"
+            :class="`${botaoNavegacao} bg-white/50 text-black hover:bg-white/70`"
+            @click="anterior"
+          >
+            Anterior
+          </button>
+          <button
+            type="button"
+            aria-label="Ver próximo projeto"
+            :class="`${botaoNavegacao} bg-azul-proximo text-white hover:brightness-125`"
+            @click="proximo"
+          >
+            Próximo
+          </button>
+        </div>
       </div>
     </template>
   </section>
