@@ -3,13 +3,13 @@ import { perfil } from '~/mocks/perfil'
 </script>
 <template>
   <div class="hero-copy">
-    <p class="eyebrow">Olá, eu sou a</p>
-    <h1>{{ perfil.nome }}<span>.</span></h1>
-    <p class="hero-role">Dev Fullstack, UI/UX designer<br>e Analista de Dados.</p>
-    <p class="hero-bio">Sou curiosa por natureza. Conecto desenvolvimento, design e dados para construir soluções que fazem sentido para quem usa.</p>
+    <h1><span class="hero-name">{{ perfil.nome }}<span class="brand-dot">.</span></span><span class="hero-profession">Desenvolvedora de software Fullstack</span></h1>
+    <p class="hero-role">UI/UX designer com experiência em análise de dados.</p>
+    <p class="hero-bio">Crio soluções tecnológicas para web e automações de processos com Python, conectando interfaces, APIs e dados.</p>
     <div class="hero-actions">
       <NuxtLink to="/#projetos" class="button button--primary">Ver projetos <IconeInterface nome="baixo" /></NuxtLink>
       <a :href="perfil.curriculoUrl" download="Stephany_Oliveira_Curriculo.pdf" class="button">Baixar currículo <IconeInterface nome="externo" /></a>
+      <a href="https://www.linkedin.com/in/stephany-oliveira01" target="_blank" rel="noopener noreferrer" class="button">LinkedIn <IconeInterface nome="externo" /></a>
     </div>
   </div>
 </template>

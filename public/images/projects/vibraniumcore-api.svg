@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="API de carteiras, ativos e transações">
+  <rect width="1280" height="720" rx="24" fill="#10192b"/>
+  <text x="66" y="115" fill="#f7f7fa" font-family="Poppins,Arial,sans-serif" font-size="56" font-weight="600">VibraniumCore</text>
+  <text x="66" y="187" fill="#9ebaff" font-family="Poppins,Arial,sans-serif" font-size="56" font-weight="600">API REST</text>
+  <text x="66" y="249" fill="#b4b7c1" font-family="Poppins,Arial,sans-serif" font-size="25">Autenticação JWT · Prisma · PostgreSQL</text>
+  <g stroke="#435475" fill="#15223c" stroke-width="2">
+    <rect x="66" y="350" width="322" height="190" rx="17"/>
+    <rect x="479" y="350" width="322" height="190" rx="17"/>
+    <rect x="892" y="350" width="322" height="190" rx="17"/>
+    <path d="M388 445h91m322 0h91"/>
+  </g>
+  <g fill="#d1daef" font-family="Poppins,Arial,sans-serif" font-size="29" font-weight="500" text-anchor="middle">
+    <text x="227" y="427">Carteira</text><text x="640" y="427">Ativos</text><text x="1053" y="427">Transações</text>
+  </g>
+  <g fill="#aebbd2" font-family="Poppins,Arial,sans-serif" font-size="22" text-anchor="middle">
+    <text x="227" y="476">Organização</text><text x="640" y="476">Cotações via BRAPI</text><text x="1053" y="476">Histórico íntegro</text>
+  </g>
+  <path d="M66 604h1148" stroke="#30405d"/>
+  <text x="66" y="656" fill="#aebbd2" font-family="Poppins,Arial,sans-serif" font-size="22">Node.js · Regras de negócio · Integração de APIs</text>
+</svg>

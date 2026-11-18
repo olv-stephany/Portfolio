@@ -16,10 +16,11 @@ inspirada em um layout editorial. A página apresenta:
 - experiências profissionais com relatos completos em novas abas;
 - formação acadêmica;
 - grupos de habilidades e tecnologias;
-- galeria separada por hackathons, projetos acadêmicos e pessoais;
-- pesquisa por nome, tecnologia e nomes alternativos dos projetos;
+- galeria unificada com capas e atalhos para os projetos;
+- pesquisa por nome, tecnologia e nomes alternativos, exibida a partir de 11 projetos;
 - páginas de projetos com contexto, problemática, solução, atividades e resultados;
-- navegação responsiva, currículo para download e links de contato.
+- navegação responsiva, currículo para download e links de contato;
+- metadados SEO por página, sitemap, robots.txt e dados estruturados.
 
 ## Desenvolvimento
 
@@ -42,13 +43,17 @@ Ao adicionar conteúdo, preserve a distinção entre entregas, protótipos e res
 
 Em projetos, `origem` aceita `hackathon`, `academico` ou `pessoal`; `categoria`
 representa a área de atuação. `tecnologias` e `termosBusca` alimentam a pesquisa.
-A categoria acadêmica já está disponível e permanece vazia até receber projetos.
+A origem é mantida nos dados dos projetos, sem separar a galeria em grupos.
 
 As páginas `/experiencias/[slug]` e `/projetos/[slug]` podem ser acessadas
-diretamente e retornam 404 para endereços inexistentes. Os cartões abrem os
-relatos em novas abas. O currículo de download está em `public/curriculo.pdf`.
+diretamente e retornam 404 para endereços inexistentes. Projetos abrem na mesma
+aba; as experiências profissionais mantêm a abertura em nova aba. Os links
+externos do projeto ficam disponíveis no cartão e na página de detalhes.
+O currículo de download está em `public/curriculo.pdf`.
 
-`NUXT_PUBLIC_SITE_URL` permite configurar a URL usada nas tags canônicas.
+`NUXT_PUBLIC_SITE_URL` configura o domínio canônico e deve ser definido antes do
+build, pois as páginas, o sitemap e o robots.txt são pré-renderizados.
+Veja [SEO e publicação](docs/seo.md) para os detalhes e a verificação após publicar.
 
 ## Versão em produção
 

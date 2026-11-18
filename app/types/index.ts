@@ -69,6 +69,7 @@ export interface Projeto {
   prototipoUrl?: string
   githubUrl?: string
   imagem?: string
+  imagemAlt?: string
   capa?: {
     tipo: 'api' | 'dados' | 'marte'
     rotulo: string
