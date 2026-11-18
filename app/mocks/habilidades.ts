@@ -7,7 +7,7 @@ export const habilidades: GrupoHabilidades[] = [
   },
   {
     titulo: 'Frameworks e Desenvolvimento Web',
-    icones: ['nestjs', 'nextjs', 'vue'],
+    icones: ['nestjs', 'nextjs', 'vue', 'tailwindcss', 'html', 'css'],
   },
   {
     titulo: 'Bancos de Dados',
@@ -15,7 +15,7 @@ export const habilidades: GrupoHabilidades[] = [
   },
   {
     titulo: 'Análise de Dados e Automação',
-    icones: ['powerbi', 'powerautomate', 'pandas', 'playwright'],
+    icones: ['powerbi', 'powerautomate', 'pandas', 'playwright', 'cypress'],
   },
   {
     titulo: 'Design, Versionamento e Ferramentas',

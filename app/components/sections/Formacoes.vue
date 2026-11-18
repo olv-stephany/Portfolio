@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { formacoes } from '~/mocks/formacoes'
+import { certificacoes } from '~/mocks/certificacoes'
 </script>
-
 <template>
-  <section aria-labelledby="titulo-formacoes" class="xl:mb-[23px] xl:min-h-[125px]">
-    <h2 id="titulo-formacoes" class="text-[22px] leading-[1.25] font-bold xl:-ml-px xl:text-[24px]">Formações</h2>
-
-    <ul class="mt-2 xl:mt-[5px]">
-      <li v-for="(f, i) in formacoes" :key="`${f.instituicao}-${f.curso}`" :class="i > 0 && 'mt-[11px]'">
-        <h3 class="text-[13px] leading-[18px] font-semibold xl:text-[12px]">{{ f.curso }}</h3>
-        <p class="mt-[2px] text-xs leading-4 font-medium xl:text-[11px]">{{ f.instituicao }}</p>
-        <p class="mt-px text-xs leading-4 font-medium xl:text-[11px]">{{ f.inicio }} - {{ f.fim }}</p>
-      </li>
-    </ul>
-  </section>
+  <aside class="education" aria-labelledby="titulo-formacoes">
+    <h3 id="titulo-formacoes" class="subtitle">Formação</h3>
+    <div v-for="formacao in formacoes" :key="formacao.curso"><p class="study-date">Desde {{ formacao.inicio }}</p><h4>{{ formacao.curso }}</h4><p class="institution">{{ formacao.instituicao }}</p><p class="study-date study-end">Conclusão: {{ formacao.fim }}</p></div>
+    <details class="certifications"><summary>Certificações e formação complementar <span>{{ certificacoes.length }}</span></summary><ul><li v-for="certificacao in certificacoes" :key="certificacao.curso"><h4>{{ certificacao.curso }}</h4><p>{{ certificacao.instituicao }} · {{ certificacao.periodo }}</p></li></ul></details>
+    <a href="https://www.linkedin.com/in/stephany-oliveira01" target="_blank" rel="noopener noreferrer" class="text-link">Minha trajetória no LinkedIn <IconeInterface nome="externo" /></a>
+  </aside>
 </template>

@@ -1,122 +1,57 @@
 <script setup lang="ts">
+import type { OrigemProjeto } from '~/types'
 import { projetos } from '~/mocks/projetos'
+import { icones } from '~/lib/icones'
+import { filtrarProjetos } from '~/utils/projetos'
 
-const indice = ref(0)
-const projeto = computed(() => projetos[indice.value])
-
-function proximo() {
-  indice.value = (indice.value + 1) % projetos.length
+const busca = useState('projetos-busca', () => '')
+const origem = useState<OrigemProjeto | 'todos'>('projetos-origem', () => 'todos')
+const campoBusca = useTemplateRef<HTMLInputElement>('campoBusca')
+const origens: { valor: OrigemProjeto | 'todos'; nome: string }[] = [
+  { valor: 'todos', nome: 'Todos' }, { valor: 'hackathon', nome: 'Hackathons' },
+  { valor: 'academico', nome: 'Acadêmicos' }, { valor: 'pessoal', nome: 'Pessoais' },
+]
+const nomesTecnologias = Object.fromEntries(Object.entries(icones).map(([chave, icone]) => [chave, icone.nome]))
+const filtrados = computed(() => filtrarProjetos(projetos, busca.value, origem.value, nomesTecnologias))
+const grupos = computed(() => origens.filter(item => item.valor !== 'todos').map(item => ({ ...item, projetos: filtrados.value.filter(projeto => projeto.origem === item.valor) })).filter(item => item.projetos.length))
+const temProjetosAcademicos = projetos.some(projeto => projeto.origem === 'academico')
+const filtroAtivo = computed(() => Boolean(busca.value.trim()) || origem.value !== 'todos')
+function quantidade(valor: OrigemProjeto | 'todos') { return valor === 'todos' ? projetos.length : projetos.filter(projeto => projeto.origem === valor).length }
+function limpar(apenasBusca = false) {
+  busca.value = ''
+  if (!apenasBusca) origem.value = 'todos'
+  nextTick(() => campoBusca.value?.focus())
 }
-
-function anterior() {
-  indice.value = (indice.value - 1 + projetos.length) % projetos.length
-}
-
-const botaoContorno =
-  'flex h-10 min-w-[110px] flex-1 items-center justify-center rounded-[8px] border-2 border-white text-base text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-[140px] md:flex-none md:text-lg xl:h-[40px] xl:w-[200px] xl:min-w-0 xl:text-[20px]'
-
-const botaoNavegacao =
-  'h-10 flex-1 cursor-pointer rounded-[8px] text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:w-[150px] md:flex-none xl:h-[40px] xl:w-[150px] xl:text-[18px]'
 </script>
-
 <template>
-  <section aria-labelledby="titulo-projetos" class="relative mt-14 xl:mt-[87px] xl:h-[735px] xl:w-[1282px]">
-    <div class="md:relative xl:contents">
-      <h2
-        id="titulo-projetos"
-        class="z-10 mb-4 flex h-11 items-center justify-center rounded-[13px] bg-azul-projetos text-[24px] font-bold md:absolute md:top-0 md:right-0 md:mb-0 md:h-9 md:w-[29%] md:text-[20px] xl:top-[15px] xl:right-auto xl:left-[908px] xl:h-[45px] xl:w-[374px] xl:text-[30px]"
-      >
-        Projetos
-      </h2>
-
-      <div v-if="projeto" class="relative xl:contents">
-        <ImagemRecortada
-          :src="projeto.imagem"
-          :alt="`Imagem do projeto ${projeto.nome}`"
-          class="xl:absolute xl:top-0 xl:left-0"
-        />
-
-        <div class="absolute top-3 left-3 flex gap-2 md:top-4 md:left-4 xl:contents">
-          <span
-            id="projeto-categoria"
-            class="flex h-8 items-center justify-center rounded-[10px] bg-azul-tag px-4 text-sm font-semibold text-black md:h-9 md:min-w-[150px] md:text-base xl:absolute xl:top-[18px] xl:left-[19px] xl:h-[45px] xl:w-[282px] xl:min-w-0 xl:px-0 xl:text-[24px]"
-          >
-            {{ projeto.categoria }}
-          </span>
-          <span
-            id="projeto-status"
-            class="flex h-8 items-center justify-center rounded-[14px] bg-azul-status/74 px-3 text-xs font-medium md:h-9 md:text-sm xl:absolute xl:top-[18px] xl:left-[323px] xl:h-[45px] xl:w-[152px] xl:px-0 xl:text-[16px]"
-          >
-            {{ projeto.status }}
-          </span>
-        </div>
-      </div>
+  <section id="projetos" class="section projects" aria-labelledby="titulo-projetos">
+    <div class="section-heading"><div><p class="eyebrow">Da ideia à construção</p><h2 id="titulo-projetos">Projetos</h2></div><p class="section-caption">Diferentes contextos.<br>A mesma vontade de resolver.</p></div>
+    <div class="project-toolbar">
+      <label class="project-search"><IconeInterface nome="busca" /><span class="sr-only">Buscar projetos por nome ou tecnologia</span><input ref="campoBusca" v-model="busca" type="search" placeholder="Nome do projeto ou tecnologia" autocomplete="off" /><button v-if="busca" type="button" aria-label="Limpar busca" @click="limpar(true)"><IconeInterface nome="fechar" /></button></label>
+      <p class="results-count" role="status" aria-live="polite">{{ filtrados.length }} {{ filtrados.length === 1 ? 'projeto' : 'projetos' }}{{ filtroAtivo ? (filtrados.length === 1 ? ' encontrado' : ' encontrados') : ' para explorar' }}</p>
     </div>
-
-    <template v-if="projeto">
-      <div class="mt-6 grid gap-6 md:mt-8 md:grid-cols-[1fr_auto] md:gap-x-10 xl:contents">
-        <div class="xl:absolute xl:top-[420px] xl:left-0 xl:w-[727px]">
-          <h3
-            id="projeto-nome"
-            class="text-[26px] leading-[1.25] font-bold break-words md:text-[32px] xl:text-[40px]"
-          >
-            {{ projeto.nome }}
-          </h3>
-          <p
-            id="projeto-descricao"
-            class="mt-2 text-base leading-7 md:text-xl xl:w-full xl:text-[15px] xl:leading-8"
-          >
-            {{ projeto.descricao }}
-          </p>
+    <div class="project-filters" role="group" aria-label="Filtrar projetos por origem">
+      <button v-for="item in origens" :key="item.valor" type="button" :aria-pressed="origem === item.valor" @click="origem = item.valor">{{ item.nome }} <span>{{ quantidade(item.valor) }}</span></button>
+    </div>
+    <div v-if="filtrados.length" class="project-groups">
+      <section v-for="grupo in grupos" :key="grupo.valor" class="project-group" :aria-label="grupo.nome">
+        <div class="category-heading"><h3>{{ grupo.nome }}</h3><span>{{ grupo.projetos.length }} {{ grupo.projetos.length === 1 ? 'projeto' : 'projetos' }}</span></div>
+        <div :class="['project-grid', { 'project-grid--three': grupo.projetos.length === 3 }]">
+          <article v-for="projeto in grupo.projetos" :key="projeto.slug" class="project-card">
+            <NuxtLink :to="`/projetos/${projeto.slug}`" target="_blank" rel="noopener noreferrer" class="project-cover-link" :aria-label="`Conhecer ${projeto.nome} (abre em nova aba)`"><CapaProjeto :projeto="projeto" /></NuxtLink>
+            <div class="project-meta"><span>{{ projeto.categoria }}</span><span>{{ projeto.contexto }}</span><span v-if="projeto.status !== 'Concluído'" class="project-status">{{ projeto.status }}</span></div>
+            <h4>{{ projeto.nome }}</h4><p class="project-brief">{{ projeto.resumo }}</p>
+            <Tecnologias :chaves="projeto.tecnologias" compacta />
+            <NuxtLink :to="`/projetos/${projeto.slug}`" target="_blank" rel="noopener noreferrer" class="project-case-link" :aria-label="`Ver atividades e resultados de ${projeto.nome} (abre em nova aba)`">Ver projeto <IconeInterface nome="externo" /></NuxtLink>
+          </article>
         </div>
-
-        <div class="xl:contents">
-          <h3
-            id="titulo-tecnologias"
-            class="text-[24px] leading-[1.25] font-semibold md:text-[28px] xl:absolute xl:top-[476px] xl:left-[765px] xl:text-[30px]"
-          >
-            Tecnologias
-          </h3>
-          <ul class="mt-3 flex flex-wrap gap-3 [--k:0.85] xl:absolute xl:top-[530px] xl:left-[765px] xl:mt-0 xl:gap-[19px] xl:[--k:1]">
-            <li v-for="chave in projeto.tecnologias" :key="chave">
-              <IconeTile :chave="chave" :tamanho="40" :largura="55" :raio="8" :escala-icone="0.62" fundo-padrao="#1f1f1f" />
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between xl:contents">
-        <div class="flex flex-wrap gap-3 xl:absolute xl:top-[690px] xl:left-[6px] xl:flex-nowrap xl:gap-[16px]">
-          <a v-if="projeto.demoUrl" :href="projeto.demoUrl" target="_blank" rel="noopener noreferrer" :class="botaoContorno">
-            Ver Demo
-          </a>
-          <a v-if="projeto.githubUrl" :href="projeto.githubUrl" target="_blank" rel="noopener noreferrer" :class="botaoContorno">
-            GitHub
-          </a>
-        </div>
-
-        <div
-          v-if="projetos.length > 1"
-          class="flex w-full gap-3 md:w-auto xl:absolute xl:top-[690px] xl:left-[960px]"
-        >
-          <button
-            type="button"
-            aria-label="Ver projeto anterior"
-            :class="`${botaoNavegacao} bg-white/50 text-black hover:bg-white/70`"
-            @click="anterior"
-          >
-            Anterior
-          </button>
-          <button
-            type="button"
-            aria-label="Ver próximo projeto"
-            :class="`${botaoNavegacao} bg-azul-proximo text-white hover:brightness-125`"
-            @click="proximo"
-          >
-            Próximo
-          </button>
-        </div>
-      </div>
-    </template>
+      </section>
+      <div v-if="origem === 'todos' && !busca.trim() && !temProjetosAcademicos" class="academic-note"><h3>Acadêmicos</h3><p>Os trabalhos da graduação terão seu espaço por aqui.</p></div>
+    </div>
+    <div v-else class="empty-state">
+      <h3>{{ origem === 'academico' && !busca.trim() ? 'Projetos acadêmicos' : 'Nenhum projeto encontrado.' }}</h3>
+      <p>{{ origem === 'academico' && !busca.trim() ? 'Nenhum trabalho da graduação adicionado por enquanto.' : 'Tente outro nome ou tecnologia, ou altere a origem selecionada.' }}</p>
+      <button class="button" type="button" @click="limpar()">{{ origem === 'academico' && !busca.trim() ? 'Explorar outros projetos' : 'Limpar filtros' }}</button>
+    </div>
   </section>
 </template>

@@ -6,6 +6,10 @@ import {
   siPrisma,
   siTrello,
   siTypescript,
+  siTailwindcss,
+  siHtml5,
+  siCss,
+  siCypress,
 } from 'simple-icons'
 
 import csharpSvg from '~/assets/icones/csharp.svg?raw'
@@ -60,6 +64,10 @@ export const icones = {
   nestjs: colorido('NestJS', nestjsSvg, CREME, 0.72),
   nextjs: colorido('Next.js', nextjsSvg, SEM_FUNDO, 0.95),
   vue: colorido('Vue.js', vueSvg, SEM_FUNDO, 0.95),
+  tailwindcss: simples(siTailwindcss, SEM_FUNDO, '#38bdf8'),
+  html: simples(siHtml5, SEM_FUNDO, '#e34f26'),
+  css: simples(siCss, SEM_FUNDO, '#a78bfa'),
+  cypress: simples(siCypress, SEM_FUNDO, '#69d3a7'),
 
   postgresql: colorido('PostgreSQL', postgresqlSvg, CREME, 0.72),
   mongodb: colorido('MongoDB', mongodbSvg, '#023430', 0.8),
