@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { descricao } from '~/mocks/descricao'
 import { perfil } from '~/mocks/perfil'
 </script>
-
 <template>
-  <div>
-    <h1 class="text-[28px] leading-[1.25] font-bold md:text-[32px] xl:mt-[2px] xl:-ml-[5px] xl:text-[36px]">
-      Olá, eu sou a {{ perfil.nome }}
-    </h1>
-    <p class="mt-1 text-[15px]">{{ perfil.subtitulo }}</p>
-    <p class="mt-3 text-[15px]">{{ descricao }}</p>
+  <div class="hero-copy">
+    <p class="eyebrow">Olá, eu sou a</p>
+    <h1>{{ perfil.nome }}<span>.</span></h1>
+    <p class="hero-role">Dev Fullstack, UI/UX designer<br>e Analista de Dados.</p>
+    <p class="hero-bio">Sou curiosa por natureza. Conecto desenvolvimento, design e dados para construir soluções que fazem sentido para quem usa.</p>
+    <div class="hero-actions">
+      <NuxtLink to="/#projetos" class="button button--primary">Ver projetos <IconeInterface nome="baixo" /></NuxtLink>
+      <a :href="perfil.curriculoUrl" download="Stephany_Oliveira_Curriculo.pdf" class="button">Baixar currículo <IconeInterface nome="externo" /></a>
+    </div>
   </div>
 </template>
