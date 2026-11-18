@@ -4,7 +4,7 @@ withDefaults(defineProps<{ projeto: Projeto; prioridade?: boolean }>(), { priori
 </script>
 <template>
   <div v-if="projeto.imagem" class="project-cover">
-    <img :src="projeto.imagem" :alt="`Apresentação visual de ${projeto.nome}`" width="1280" height="720" :loading="prioridade ? 'eager' : 'lazy'" />
+    <img :src="projeto.imagem" :alt="projeto.imagemAlt ?? `Apresentação visual de ${projeto.nome}`" width="1280" height="720" :loading="prioridade ? 'eager' : 'lazy'" />
   </div>
   <div v-else :class="['project-cover', 'project-cover--type', `project-cover--${projeto.capa?.tipo ?? 'api'}`]" role="img" :aria-label="`Capa do projeto ${projeto.nome}`">
     <span class="cover-label">{{ projeto.capa?.rotulo ?? projeto.categoria }}</span>

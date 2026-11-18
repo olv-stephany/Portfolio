@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "typecheck": "nuxt prepare && vue-tsc --noEmit -p .nuxt/tsconfig.app.json",
+    "typecheck": "nuxt prepare && vue-tsc --noEmit -p .nuxt/tsconfig.app.json && tsc --noEmit -p .nuxt/tsconfig.server.json",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",

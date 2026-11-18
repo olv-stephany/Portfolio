@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#000"/>
+  <rect x="70" y="67" width="42" height="7" rx="3.5" fill="#7197f0"/>
+  <text x="70" y="133" fill="#f7f7fa" font-family="Poppins,Arial,sans-serif" font-size="36" font-weight="600">Stephany Oliveira</text>
+  <text x="68" y="267" fill="#f7f7fa" font-family="Poppins,Arial,sans-serif" font-size="66" font-weight="600">Desenvolvimento</text>
+  <text x="68" y="349" fill="#f7f7fa" font-family="Poppins,Arial,sans-serif" font-size="66" font-weight="600">de software</text>
+  <text x="68" y="431" fill="#9ebaff" font-family="Poppins,Arial,sans-serif" font-size="66" font-weight="600">e automações.</text>
+  <path d="M70 492h1060" stroke="#2b2e35"/>
+  <text x="70" y="549" fill="#b4b7c1" font-family="Poppins,Arial,sans-serif" font-size="24">Fullstack · UI/UX · Dados</text>
+  <text x="1130" y="549" text-anchor="end" fill="#b4b7c1" font-family="Poppins,Arial,sans-serif" font-size="22">stephanyportfolio.work</text>
+  <rect x="941" y="178" width="168" height="168" rx="30" fill="#101a32"/>
+  <path d="m994 222-35 39 35 39m62-78 35 39-35 39m-30-86-20 92" stroke="#9ebaff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

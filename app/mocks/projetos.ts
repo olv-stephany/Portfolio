@@ -2,7 +2,7 @@ import type { Projeto } from '~/types'
 
 export const projetos: Projeto[] = [
   {
-    slug: 'umbrella-weather', origem: 'hackathon', imagem: '/projeto-umbrella.jpg', categoria: 'Front-end', status: 'Concluído', nome: 'Umbrella W.I', contexto: 'NASA Space Apps · 2025',
+    slug: 'umbrella-weather', origem: 'hackathon', imagem: '/projeto-umbrella.jpg', imagemAlt: 'Identidade do Umbrella W.I, projeto de visualização de dados climáticos da NASA.', categoria: 'Front-end', status: 'Concluído', nome: 'Umbrella W.I', contexto: 'NASA Space Apps · 2025',
     resumo: 'Dados climáticos da NASA e um mapa interativo para tornar informações ambientais mais acessíveis.',
     descricao: 'Projeto desenvolvido em equipe no NASA Space Apps Challenge 2025, no desafio “Will It Rain On My Parade?”. A plataforma combina dados da NASA POWER API, mapa interativo e seleção de datas para apresentar informações climáticas de forma acessível.',
     participacao: 'Requisitos, UI/UX e desenvolvimento front-end', tecnologias: ['nextjs', 'tailwindcss', 'figma'],
@@ -17,7 +17,7 @@ export const projetos: Projeto[] = [
     },
   },
   {
-    slug: 'hacarthon-sicar', origem: 'hackathon', imagem: '/projeto-cartograficos.jpg', categoria: 'UI/UX', status: 'Concluído', nome: 'HaCARthon/SICAR', contexto: 'HaCARthon · 2026',
+    slug: 'hacarthon-sicar', origem: 'hackathon', imagem: '/projeto-cartograficos.jpg', imagemAlt: 'Protótipo mobile do CARtográficos para Cadastro Ambiental Rural, apresentado no HaCARthon/SICAR.', categoria: 'UI/UX', status: 'Concluído', nome: 'HaCARthon/SICAR', contexto: 'HaCARthon · 2026',
     resumo: 'Protótipo mobile para facilitar o cadastro rural e a demarcação de terrenos por GPS.',
     descricao: 'Solução concebida em equipe para facilitar o Cadastro Ambiental Rural. O protótipo propõe uma experiência acessível de preenchimento, validação e delimitação do terreno, incluindo uso de GPS e funcionamento offline.',
     participacao: 'Levantamento de requisitos e prototipação de interfaces', tecnologias: ['figma'], termosBusca: ['CARtográficos', 'Cadastro Ambiental Rural', 'SICAR'],
@@ -30,7 +30,7 @@ export const projetos: Projeto[] = [
     },
   },
   {
-    slug: 'surviving-in-mars', origem: 'hackathon', categoria: 'UI/UX', status: 'Em produção', nome: 'Surviving in Mars', contexto: 'NASA Space Apps · 2026',
+    slug: 'surviving-in-mars', origem: 'hackathon', imagem: '/projeto-surviving-mars.jpg', imagemAlt: 'Menu inicial do jogo Surviving in Mars, com astronauta, veículo e cenário marciano.', categoria: 'UI/UX', status: 'Em produção', nome: 'Surviving in Mars', contexto: 'NASA Space Apps · 2026',
     resumo: 'UI/UX, dados reais da NASA e curadoria sonora para um simulador educacional em Marte.',
     descricao: 'Simulador educacional de gestão de um posto marciano desenvolvido em HTML, CSS, JavaScript e Node.js, para o desafio “Junior Astronaut Mission Trainer” do NASA Space Apps Challenge 2026. O projeto está em produção.',
     participacao: 'UI/UX, organização de dados da NASA e curadoria sonora', tecnologias: ['html', 'css', 'javascript', 'nodejs'],
@@ -45,7 +45,7 @@ export const projetos: Projeto[] = [
     },
   },
   {
-    slug: 'vibraniumcore-api', origem: 'pessoal', categoria: 'Back-end', status: 'Concluído', nome: 'VibraniumCore-API', contexto: 'Projeto pessoal',
+    slug: 'vibraniumcore-api', origem: 'pessoal', imagem: '/images/projects/vibraniumcore-api.svg', imagemAlt: 'Diagrama da API VibraniumCore: carteiras, ativos e transações com Node.js, Prisma e PostgreSQL.', categoria: 'Back-end', status: 'Concluído', nome: 'VibraniumCore-API', contexto: 'Projeto pessoal',
     resumo: 'Uma API para organizar carteiras de investimentos, ativos e histórico de transações.',
     descricao: 'API RESTful de gestão de carteira de investimentos, com autenticação JWT, Prisma e PostgreSQL. Integra cotações da BRAPI e preserva a consistência do histórico de transações.',
     participacao: 'Desenvolvimento da API e modelagem das regras de negócio', tecnologias: ['nodejs', 'prisma', 'postgresql'], termosBusca: ['JWT', 'BRAPI', 'REST', 'Node JS'], githubUrl: 'https://github.com/olv-stephany/VibraniumCore-API',
@@ -59,7 +59,7 @@ export const projetos: Projeto[] = [
     },
   },
   {
-    slug: 'searchaddress', origem: 'pessoal', categoria: 'Dados', status: 'Concluído', nome: 'SearchAddress', contexto: 'Projeto pessoal',
+    slug: 'searchaddress', origem: 'pessoal', imagem: '/images/projects/searchaddress.svg', imagemAlt: 'Fluxo do SearchAddress: coordenadas, malha territorial do IBGE e município/UF.', categoria: 'Dados', status: 'Concluído', nome: 'SearchAddress', contexto: 'Projeto pessoal',
     resumo: 'Coordenadas geográficas transformadas em endereços com dados territoriais do IBGE.',
     descricao: 'Pipeline em Python e GeoPandas que associa coordenadas a municípios e estados usando spatial join sobre a malha territorial pública do IBGE, sem depender de APIs pagas de geocodificação.',
     participacao: 'Desenvolvimento do pipeline e tratamento de dados geográficos', tecnologias: ['python', 'pandas'], termosBusca: ['GeoPandas', 'IBGE', 'CSV', 'Spatial join'], githubUrl: 'https://github.com/olv-stephany/SearchAddress',

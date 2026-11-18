@@ -5,6 +5,6 @@ import { perfil } from '~/mocks/perfil'
 <template>
   <figure class="hero-art">
     <img :src="perfil.foto ?? fotoPadrao" alt="Ilustração de uma pessoa abraçando um gato" width="218" height="218" fetchpriority="high" />
-    <figcaption>Curiosidade, código<br>e um pouco de criatividade.</figcaption>
+    <figcaption>Curiosidade, código<br>e criatividade.</figcaption>
   </figure>
 </template>

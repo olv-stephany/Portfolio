@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Pipeline de coordenadas para município e estado">
+  <rect width="1280" height="720" rx="24" fill="#101c27"/>
+  <text x="66" y="115" fill="#f7f7fa" font-family="Poppins,Arial,sans-serif" font-size="56" font-weight="600">SearchAddress</text>
+  <text x="66" y="187" fill="#9ebaff" font-family="Poppins,Arial,sans-serif" font-size="49" font-weight="500">Coordenadas em endereços.</text>
+  <text x="66" y="249" fill="#b4b7c1" font-family="Poppins,Arial,sans-serif" font-size="25">Python · GeoPandas · Dados públicos do IBGE</text>
+  <g fill="#142d3b" stroke="#395467" stroke-width="2">
+    <rect x="66" y="350" width="322" height="190" rx="17"/>
+    <rect x="479" y="350" width="322" height="190" rx="17"/>
+    <rect x="892" y="350" width="322" height="190" rx="17"/>
+    <path d="M388 445h91m322 0h91"/>
+  </g>
+  <g fill="#d1daef" font-family="Poppins,Arial,sans-serif" font-size="29" font-weight="500" text-anchor="middle">
+    <text x="227" y="427">Coordenadas</text><text x="640" y="427">Malha IBGE</text><text x="1053" y="427">Município e UF</text>
+  </g>
+  <g fill="#aebbd2" font-family="Poppins,Arial,sans-serif" font-size="22" text-anchor="middle">
+    <text x="227" y="476">Dados de entrada</text><text x="640" y="476">Spatial join</text><text x="1053" y="476">Prontos para planilhas</text>
+  </g>
+  <path d="M66 604h1148" stroke="#304554"/>
+  <text x="66" y="656" fill="#aebbd2" font-family="Poppins,Arial,sans-serif" font-size="22">Automação de dados geográficos sem APIs pagas</text>
+</svg>
